@@ -39,6 +39,7 @@ On startup, the server will also print out a usuable link
 *Requests made by the website to the server are curated.*
 *To test edge cases, please use test.py or POST directly*
 
+#### white spaces will be ignored
 
 ## Server Code Structure
 ```
