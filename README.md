@@ -32,6 +32,8 @@ LCS payloads can be added to *test_payload.json*
 
 Once the server is running, use `python3 test.py` to run POSTs against it with the payloads
 
+Or POST directly to http://localhost:{port}/lcs
+
 *if you are having trouble running test.py, use `./install_requests.py`*
 
 *test_py* will POST each payload contained in test_payload.json one at a time and 
