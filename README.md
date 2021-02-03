@@ -34,6 +34,11 @@ Once the server is running, use `python3 test.py` to run queries against it with
 
 *if you are having trouble running test.py, use `./install_requests.py`*
 
+*test_py* will POST each payload contained in test_payload.json one at a time and 
+will print out a response
+
+## WEBSITE
+
 A website is backed in and can be accessed at http://localhost:<port>/
     
 On startup, the server will also print out a usuable link
