@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        window.onload = function(){
+            console.log(window.location.href + "lcs")
+            document.getElementById("submitBtn").onclick = submit
+            document.getElementById("addBtn").onclick = addNew
+
+            document.getElementById("removeBtn").onclick = removeInput
+
+        }
+
+        function submit(){
+           inputs = document.getElementsByTagName("input")
+           inputsToSend = []
+           let val
+           for(let i = 0; i < inputs.length; i++){
+               val = inputs[i].value != null ? inputs[i].value : ""
+               inputsToSend.push( {"value": val } )
+           }
+
+           var payload = { "setOfStrings" : inputsToSend };
+
+           var xhr = new XMLHttpRequest();
+           xhr.open("POST", window.location.href + "lcs")
+           console.log("sending " + JSON.stringify(payload))
+           xhr.send( JSON.stringify(payload))
+
+           xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    switch(xhr.status){
+                        case 200:
+                            handleResult( this.responseText )
+                            break;
+
+                        default:
+                            document.getElementById("result").innerHTML = "Server Error"
+                    }
+                }
+           }
+        }
+
+        function handleResult(result){
+            let lcsBody = JSON.parse(result).lcs
+            let resultHtml = document.getElementById("result")
+
+
+            if(lcsBody.length == 0){
+                 resultHtml.innerHTML = "NO LCS FOUND"
+                 return
+            }
+
+            let lcsString = "";
+            for(let i = 0; i < lcsBody.length; i++){
+                lcsString += "<br>" + lcsBody[i].value
+            }
+
+            resultHtml.innerHTML = "LCS LIST " + lcsString
+        }
+
+        function addNew(){
+             inputs = document.getElementsByTagName("input")
+             if(inputs.length < 6){
+                let lastInput = inputs[inputs.length - 1]
+                lastInput.insertAdjacentHTML("afterend", '<input type="text">')
+                lastInput.insertAdjacentHTML("afterend", '<br>')
+                lastInput.insertAdjacentHTML("afterend", '<br>')
+
+                document.getElementById("removeBtn").removeAttribute("hidden")
+
+             }
+        }
+
+        function removeInput(){
+            inputs = document.getElementsByTagName("input")
+            if(inputs.length > 3){
+                inputs[inputs.length -1].remove()
+
+                if(inputs.length == 3){
+                    document.getElementById("removeBtn").setAttribute("hidden", true)
+                }
+            }
+        }
+
+    </script>
+
+    <center>
+        <h2>Enter a set of strings</h2>
+    <form>
+        <input type="text"><br><br>
+        <input type="text"><br><br>
+        <input type="text"><br><br>
+    </form>
+
+    <button id="addBtn">Add more</button><br><br>
+    <button id="removeBtn" hidden> Remove</button>
+    <button id="submitBtn"> Submit</button>
+    <h2 id="result"> </h2>
+
+    </center>
+</body>
+</html>

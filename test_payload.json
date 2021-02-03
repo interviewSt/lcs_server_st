@@ -1,0 +1,25 @@
+{
+	"payloads" : 
+	[
+		{
+		    "setOfStrings": 
+		    [
+			{"value": "comcaster   $"},
+			{"value":  "broadcaster  \na"},
+			{"value": "cast"}
+		    ]
+		},
+		{
+                    "setOfStrings":
+                    [
+           	    ]
+                },
+		{
+                    "sssetOfStrings":
+                    [
+           	    ]
+                },
+		{
+                }
+	]
+}
