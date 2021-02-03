@@ -29,11 +29,13 @@ Server must be restarted for new config to take into effect
 
 ## TESTING
 LCS payloads can be added to *test_payload.json*
+
 Once the server is running, use `python3 test.py` to run queries against it with the payloads
 
 *if you are having trouble running test.py, use `./install_requests.py`*
 
 A website is backed in and can be accessed at htttp://localhost:<port in config file>/
+    
 On startup, the server will also print out a usuable link
 
 *Requests made by the website to the server are curated.*
