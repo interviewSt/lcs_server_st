@@ -39,7 +39,7 @@ will print out a response
 
 ## WEBSITE
 
-A website is backed in and can be accessed at http://localhost:{port}>/
+A website is backed in and can be accessed at http://localhost:{port}/
     
 On startup, the server will also print out a usuable link
 
