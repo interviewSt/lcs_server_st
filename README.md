@@ -8,7 +8,9 @@
 
 ## BUILDING
 `git clone https://github.com/interviewSt/lcs_server_st`
+
 `cd lcs_server_st`
+
 `./build.sh` 
 
 
