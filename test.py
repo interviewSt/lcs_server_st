@@ -23,24 +23,31 @@ except:
     sys.exit()
 
 for payload in payloads['payloads']:
+    r = {}
+    body = {}
     try:
         r = requests.post("http://localhost:{}/lcs".format(port), data = json.dumps(payload) )
         body = r.text
-   
-        if str(r.headers['Content-Type']).startswith('text'):
-            print("ERROR\n")
-            print(r.status_code)
-            print(body )
-        
-        else:
-            body = json.loads(body)
-            print("\nLCS LIST\n")
-            for lcs in body['lcs']:
-                print(lcs['value'])
-
-        print("\n*************************\n")
-    
+  
     except:
         print("Couldn't connect to server, is it running?")
         sys.exit()
+
+    print("Status {}".format( r.status_code))
+    if str(r.headers['Content-Type']).startswith('text'):
+        print("ERROR\n")
+        print(body)
+    
+    else:
+        print("RAW BODY\n")
+        print("{}\n".format(body))
+        body = json.loads(body)
+ 
+        print("LCS LIST")
+        for lcs in body['lcs']:
+            print(lcs['value'])
+
+    print("\n*************************\n")
+    
+
 

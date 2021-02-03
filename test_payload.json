@@ -20,6 +20,14 @@
            	    ]
                 },
 		{
-                }
+                },
+		{
+		    "setOfStrings": 
+		    [
+			{"value": "$$aaahello$"},
+			{"value":  "laaalo$$  \na"},
+			{"value": "lo$aaa$$"}
+		    ]
+		}
 	]
 }
