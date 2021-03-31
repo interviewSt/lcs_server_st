@@ -1,10 +1,14 @@
+## About
+This is a website and server that calculates Longest Common String from a supplied list of words   
+
+
+
 ## REQUIRMENTS
 
 1. Java 8
-2. JDK 15+
-3. maven for building
-5. python for testing
-6. (optional) python request module for testing- can be installed with a script
+2. maven for building
+3. python for testing
+4. (optional) python request module for testing- can be installed with a script
 
 ## BUILDING
 `git clone https://github.com/interviewSt/lcs_server_st`
@@ -41,7 +45,7 @@ will print out a response
 
 ## WEBSITE
 
-A website is backed in and can be accessed at http://localhost:{port}/
+A website is baked in and can be accessed at http://localhost:{port}/
     
 On startup, the server will also print out a usuable link
 
@@ -63,7 +67,7 @@ src/main/
             (data structures)
          util/ 
             (misc)
-         resources/
-            views/
-                index.html (home page)
+     resources/
+        views/
+            index.html (home page)
 ``` 
